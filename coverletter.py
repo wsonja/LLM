@@ -5,6 +5,9 @@ from ibm_watsonx_ai.foundation_models import Model, ModelInference
 from ibm_watsonx_ai.foundation_models.schema import TextChatParameters
 from ibm_watsonx_ai.metanames import GenTextParamsMetaNames
 import gradio as gr
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 # # Model and project settings
 # model_id = "meta-llama/llama-3-2-11b-vision-instruct"  # Directly specifying the LLAMA3 model
@@ -17,7 +20,7 @@ import gradio as gr
 # # Generation parameters
 # params = TextChatParameters(
 #     temperature=0.7,
-#     max_tokens=512
+#     max_tokens=1024
 # )
 
 # project_id = "skills-network"
@@ -30,8 +33,8 @@ import gradio as gr
 #     params=params
 # )
 
-watsonx_API = "2OiYfaZ6sM-ijKK7roYWEP1NfHjXXO8lqRlSA0UtWNoW" # below is the instruction how to get them
-project_id= "f9f7d2a9-8b1b-49a6-bd7a-ef207c20dcd9" # like "0blahblah-000-9999-blah-99bla0hblah0"
+watsonx_API = os.getenv("watsonx_API") 
+project_id= os.getenv("project_id") # like "0blahblah-000-9999-blah-99bla0hblah0"
 
 params = TextChatParameters(
     temperature=0.7,

@@ -2,10 +2,12 @@ from ibm_watsonx_ai import Credentials
 from ibm_watsonx_ai import APIClient
 from ibm_watsonx_ai.foundation_models import Model, ModelInference
 from ibm_watsonx_ai.foundation_models.schema import TextChatParameters
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
-# Set up the API key and project ID for IBM Watson 
-watsonx_API = "2OiYfaZ6sM-ijKK7roYWEP1NfHjXXO8lqRlSA0UtWNoW" # below is the instruction how to get them
-project_id= "f9f7d2a9-8b1b-49a6-bd7a-ef207c20dcd9" # like "0blahblah-000-9999-blah-99bla0hblah0"
+watsonx_API = os.getenv("watsonx_API") 
+project_id= os.getenv("project_id") # like "0blahblah-000-9999-blah-99bla0hblah0"
 
 # Generation parameters
 params = TextChatParameters(
